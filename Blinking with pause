@@ -1,0 +1,31 @@
+//Write a program that causes the built-in LED connected to pin 13 on the Arduino 
+//to blink, alternating between fast blinks and slow blinks. 
+//The LED should blink 5 times, once every half second, and then it should blink 5 more times, 
+//once every two seconds. The LED should continue to blink in this alternating fashion for as long as the Arduino receives power.
+
+//If you do not have an Arduino, you can use the web-based Arduino simulator at 123d.circuits.io. 
+//You will need to create an account for free. There are instructional videos on that website that 
+//will teach you how to use the simulator. 
+
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(13, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+
+  int n;
+  for (n = 0; n<5; n++){      // for 5 times:
+  	digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+  	delay(500);               // wait for a half second
+  	digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+  	delay(250);               // wait for a half second
+  }
+  for (n = 0; n<5; n++){      // for 5 times:
+  	digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+  	delay(2000);              // wait for 2 seconds
+  	digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+  	delay(250);               // wait for 2 seconds
+  }
+}
