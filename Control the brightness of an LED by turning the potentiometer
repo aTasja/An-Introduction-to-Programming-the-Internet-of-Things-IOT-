@@ -1,1 +1,27 @@
-Control the brightness of an LED by turning the potentiometer
+//Build a circuit and write a program that allows the user to control 
+ //the brightness of an LED by turning the potentiometer. 
+ //When the user turns the potentiometer, the LED brightness should change as well.
+ 
+ //Create a video (or a screencast) of the design in action. 
+ //The video should show you turning the potentiometer clockwise 
+ //and counter-clockwise to each extreme. The LED brightness should change.
+ // https://www.youtube.com/watch?v=vVNDN5b4Bhs
+ 
+ // даём имена пинов со светодиодом
+ // и потенциометром
+ #define led 9
+ #define pot A0
+ 
+ void setup(){
+ pinMode(led, OUTPUT); // пин со светодиодом — выход
+ pinMode(pot, INPUT); // пин с потенциометром - вход
+ }
+ 
+ void loop(){
+ int x; // объявляем переменную x
+ 
+ // считываем напряжение с потенциометра:
+ // будет получено число от 0 до 1023
+ // делим его на 4, получится число в диапозоне
+ // 0-255 (дробная часть будет отброшена)
+ x = analogRead(pot) / 4;
