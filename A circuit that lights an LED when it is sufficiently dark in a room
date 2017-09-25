@@ -1,6 +1,7 @@
 //Build a circuit that lights an LED when it is sufficiently dark in a room. Demonstrate the circuit by covering the photoresistor to simulate darkness.
 //Create a video (or a screencast) of your circuit in action.
 //If you have real hardware then demonstrate the real circuit. If you do not have real hardware then use the simulator.
+// Demonstartion - https://www.youtube.com/edit?o=U&video_id=8_Aj51vQfC4
 
 int sensorPin = A0;
 int ledPin= 13;
