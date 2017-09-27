@@ -1,0 +1,37 @@
+# Build a circuit using your Raspberry Pi that causes an LED to blink when a push button is NOT pressed. 
+# However, the LED should stay on continually when the push button IS pressed.
+
+# Your video should show the LED blinking when the push button is not pressed, 
+# and it should show that the LED is constantly on while the button is pressed.
+# https://www.youtube.com/watch?v=cud-cfLFm7Y
+
+import RPi.GPIO as GPIO
+import time
+
+def setup():
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(8, GPIO.OUT) # led pin
+    # Set BtnPin's mode is input, and pull up to high level(3.3V)
+    GPIO.setup(10, GPIO.IN, pull_up_down = GPIO.PUD_UP) # button
+
+def blink():       
+    while True:
+        input_state = GPIO.input(10)
+        if input_state == False:
+            GPIO.output(8, True)
+        else:
+            GPIO.output(8, True)
+            time.sleep(0.5)
+            GPIO.output(8, False)
+            time.sleep(0.5)
+   
+def destroy():
+    GPIO.output(8, False)
+    GPIO.cleanup()
+    
+if __name__ == '__main__':
+    setup()          #the program strats here
+    try:
+        blink()
+    except KeyboardInterrupt: # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+        destroy()
