@@ -11,7 +11,6 @@ int brightness = 0;
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(ledPin, OUTPUT);
-  
 }
 
 // the loop function runs over and over again forever
